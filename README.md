@@ -2,8 +2,6 @@
 
 This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
-
 ## Technologies Used
 
 ### Frameworks & Core
