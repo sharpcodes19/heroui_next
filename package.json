@@ -2,6 +2,7 @@
   "name": "heroui_next",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack -p 4330",
     "build": "next build",

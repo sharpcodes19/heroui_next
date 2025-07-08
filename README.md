@@ -6,13 +6,49 @@ This is a template for creating applications using Next.js 14 (app directory) an
 
 ## Technologies Used
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
+### Frameworks & Core
+
+- [Next.js 15](https://nextjs.org/docs/getting-started)
+- [React 19](https://react.dev/)
+- [HeroUI v2](https://heroui.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+### UI & Styling
+
 - [HeroUI v2](https://heroui.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
+- [lucide-react](https://lucide.dev/)
+- [@uiw/react-color](https://github.com/uiwjs/react-color)
+- [react-pro-sidebar](https://github.com/azouaoui-med/react-pro-sidebar)
+- [react-responsive](https://github.com/contra/react-responsive)
 - [Framer Motion](https://www.framer.com/motion/)
+
+### State Management & Hooks
+
+- [zustand](https://github.com/pmndrs/zustand)
+- [react-hook-form](https://react-hook-form.com/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+
+### Data Handling & Utilities
+
+- [zod](https://github.com/colinhacks/zod)
+- [lodash](https://lodash.com/)
+- [uuid](https://github.com/uuidjs/uuid)
+- [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+- [nuqs](https://github.com/47ng/nuqs)
+- [color](https://github.com/Qix-/color)
+- [convert-size](https://github.com/gagle/node-convert-size)
+
+### Charts & Media
+
+- [recharts](https://recharts.org/)
+- [react-dropzone](https://react-dropzone.js.org/)
+
+### Tooling
+
+- [Bun](https://bun.sh/) – ultra-fast JavaScript runtime, bundler, and package manager
 
 ## How to Use
 
@@ -21,33 +57,5 @@ This is a template for creating applications using Next.js 14 (app directory) an
 To create a new project based on this template using `create-next-app`, run the following command:
 
 ```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
+git clone https://github.com/sharpcodes19/heroui_next.git
 ```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
