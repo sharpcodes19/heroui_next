@@ -5,6 +5,12 @@ import { z } from "zod/v4"
 import { NextResponse } from "next/server"
 import { toDateTimeConversion } from "~/utils/date"
 
+type FetchRSAAsyncOptions = Partial<
+  RequestInit & {
+    responseType?: "string" | "object"
+  }
+>
+
 const isBackendResponseMatchedAsync = async <T>(data: T) => {
   return z
     .object({
@@ -14,7 +20,7 @@ const isBackendResponseMatchedAsync = async <T>(data: T) => {
 }
 
 // prettier-ignore
-export const fetchRSAAsync = async <T> (url: string, { headers, ...init }: RequestInit = {}): Promise<BackendResponse<T>> => {
+export const fetchRSAAsync = async <T> (url: string, { headers, responseType, ...init }: FetchRSAAsyncOptions = {}): Promise<BackendResponse<T>> => {
   const urlValidator = await z.string().refine((value) => String(value).startsWith("/")).safeParseAsync(url)
 
   if(!urlValidator.success)
@@ -33,7 +39,9 @@ export const fetchRSAAsync = async <T> (url: string, { headers, ...init }: Reque
         const text = await res.text()
         return JSON.parse(text)
       }
-      const data = await res.json() as T
+      const data = 
+        responseType === "string" ? await res.text() : 
+        await res.json() as T
       const successValidator = await isBackendResponseMatchedAsync(data)
       if(!successValidator.success) {
         return { authToken, data, ok: true }
@@ -50,7 +58,7 @@ export const applyAuthTokenAsync = async (authToken: string | null) => {
 // prettier-ignore
 export const signAuthTokenAsync = async <T> (response: BackendResponse<T>) => {
   if (response.ok && response.authToken) {
-    const secret = process.env.AUTH_TOKEN_KEY_SECRET
+    const secret = process.env.AUTH_TOKEN_SECRET
     const decoded = await decodeAccountFromCookie()
     const dateConversion = toDateTimeConversion(new Date())
     const expiresIn = dateConversion.dateTime.add({ days: 1 }).toDate(dateConversion.timeZone).getTime()
@@ -67,7 +75,7 @@ export const decodeAccountFromCookie = async <T extends JwtPayload> () => {
 
   if (!authToken) return null
   
-  const secret = process.env.AUTH_TOKEN_KEY_SECRET
+  const secret = process.env.AUTH_TOKEN_SECRET
   const decoded = _.isNil(secret) ?
     jwt.decode(authToken.value) :
     jwt.verify(authToken.value, secret)

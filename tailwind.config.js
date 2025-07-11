@@ -41,18 +41,18 @@ const config = {
           width: "3rem",
           height: "3rem",
         },
-        ".bg-hero": {
-          backgroundImage: "url(/cover-green.jpg)",
-          backgroundPosition: "center center",
-          backgroundRepeat: "repeat-x",
-          backgroundSize: "cover",
-        },
-        ".bg-hero-blue": {
-          backgroundImage: "url(/cover-blue.jpg)",
-          backgroundPosition: "center center",
-          backgroundRepeat: "repeat-x",
-          backgroundSize: "cover",
-        },
+        // ".bg-hero": {
+        //   backgroundImage: "url(/cover-green.jpg)",
+        //   backgroundPosition: "center center",
+        //   backgroundRepeat: "repeat-x",
+        //   backgroundSize: "cover",
+        // },
+        // ".bg-hero-blue": {
+        //   backgroundImage: "url(/cover-blue.jpg)",
+        //   backgroundPosition: "center center",
+        //   backgroundRepeat: "repeat-x",
+        //   backgroundSize: "cover",
+        // },
       })
     }),
   ],
